@@ -1,17 +1,25 @@
 import math
 
-def calc(a,b,c):
-    delta = b*b-4*a*c
-    deltaint = int(delta)
-    raizDelta = math.sqrt(deltaint)
-    baskhara1 = -b+int(raizDelta)/2*a
-    baskhara2 = -b-int(raizDelta)/2*a
-    if deltaint < 0:
-        print("NÃO EXISTEM RAIZES PARA ESSA FUNÇÃO")
-    elif deltaint == float:
-        deltaint = int(deltaint)
-    else:
-        return print(f"Delta: {deltaint}\nRaiz de Delta: {int(raizDelta)}\nResultado: X¹= {baskhara1} X²= {baskhara2}")
+class Calculo():
+    def __init__(self, a, b ,c):
+        self.a = a
+        self.b = b
+        self.c = c
 
-
-print(calc(1,2,-24))
+    def delta_bhaskara(a,b,c):
+        deltaint = b*b-4*a*c
+        delta = math.sqrt(deltaint)
+        r1 = -b+delta
+        r2 = -b-delta
+        r3 = 2*a
+        result = [r1,r2]
+        result1 = []
+        if delta < 0:
+            print("Não possui raizes.")
+        else:
+            result1.append(list(map(lambda x: x/r3, result)))
+            for respostas in result1:
+                list(respostas)
+                print(f"Delta: {delta}\nx¹: {respostas[0]}\nx²: {respostas[1]}")                
+if(__name__ == "__main__"):
+    Calculo.delta_bhaskara(1,-10,0)
